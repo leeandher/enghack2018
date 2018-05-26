@@ -49,17 +49,47 @@ function Deck(props) {
 class StickyNav extends Component {
   constructor(props) {
     super(props)
-    this.handleDownload = this.handleDownload.to
+    this.handleDownload = this.handleDownload.bind(this);
   }
-  return(
-    <div className="function-container">
-      <button id="download" onClick={this.handleDownload}>Download Note</button>
-      <button id="review" disabled>Mark for Review</button>
-      <button id="skip" disabled>Skip</button>
-      <button id="reveal" disabled>Reveal</button>
-      <button id="review">Quiz Me!</button>
-    </div>
-  )
+
+  handleDownload() {
+    var textToWrite = this.props.text//Your text input;
+    var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+    var fileNameToSaveAs = 'flashDash.txt'//Your filename;
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null)
+    {
+        // Chrome allows the link to be clicked
+        // without actually adding it to the DOM.
+        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    }
+    // else
+    // {
+    //     // Firefox requires the link to be added to the DOM
+    //     // before it can be clicked.
+    //     downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    //     downloadLink.onclick = destroyClickedElement;
+    //     downloadLink.style.display = "none";
+    //     document.body.appendChild(downloadLink);
+    // }
+
+    if (textToWrite) downloadLink.click();
+  }
+
+  render() {
+    return(
+      <div className="function-container">
+        <button id="download" onClick={this.handleDownload}>Download Note</button>
+        <button id="review" disabled>Mark for Review</button>
+        <button id="skip" disabled>Skip</button>
+        <button id="reveal" disabled>Reveal</button>
+        <button id="review">Quiz Me!</button>
+      </div>
+    );
+  }
 }
 
 
@@ -71,7 +101,6 @@ class Interface extends Component {
       deck: [],
     }
     this.handleInput = this.handleInput.bind(this);
-    //this.paresInputForDefinition = this.paresInputForDefinition.bind(this);
   }
 
   handleInput(e) {
@@ -98,7 +127,7 @@ class Interface extends Component {
         <Header />
         <Editor input={this.state.input} onChange={this.handleInput} />
         <Deck status={Object.values(this.state.deck) ? "Your deck:" :"← Start a deck!"} deckList={this.state.deck || []}/>
-        <StickyNav />
+        <StickyNav text={this.state.input}/>
       </div>
     )
   }

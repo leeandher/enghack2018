@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">flashDash</string>
+    <string name="hint">example:example definition</string>
+    <string name="startButton">Start review!</string>
+    <string name="saveButton">Save quiz set</string>
+    <string name="setSelect">Select your set</string>
+    <string name="Skip">Next card</string>
+    <string name="Save">Skip</string>
+    <string name="Clear">Clear</string>
+    <string name="Reveal">Reveal</string>
+
+
+
+
+        <string-array name="question_sets">
+            <item>set 1</item>
+            <item>set 2</item>
+            <item>set 3</item>
+            <item>set 4</item>
+            <item>set 5</item>
+            <item>set 6</item>
+            <item>set 7</item>
+            <item>set 8</item>
+        </string-array>
+    </resources>
+
+

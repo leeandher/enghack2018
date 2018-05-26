@@ -56,7 +56,7 @@
   border-radius: 15px;
   padding: 10px;
   height: 400px;
-  font-size: 16px;
+  font-size: 20px;
   width: 80%;
 }
 
@@ -139,5 +139,10 @@
 
 .deck-stack .card .term {
   font-weight: bold;
+  font-size: 20px;
   display: inline-block;
+}
+
+.deck-stack .card .description {
+  font-size: 16px;
 }
