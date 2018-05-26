@@ -1,0 +1,72 @@
+:root {
+  --light: white;
+  --dark: black;
+  --accent: #B4DA55;
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+  font-family: 'Montserrat';
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.write-interface {
+  position: relative;
+  display: block;
+  height: 100vh;
+  width: 50%;
+  background-color: var(--dark);
+  color: var(--light);
+  text-align: center;
+  float: left;
+  clear: none;
+}
+.read-interface {
+  position: relative;
+  display: block;
+  height: 100vh;
+  width: 50%;
+  background-color: var(--light);
+  color: var(--dark);
+  text-align: center;
+  clear: none;
+  float:right;
+}
+
+.subheading {
+  font-size: 35px;
+  font-weight: 200;
+}
+
+.area {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.write {
+  border-radius: 15px;
+  height: 300px;
+  padding: 10px;
+  border: 1px solid var(--dark);
+  width: 80%;
+  &:focus {
+    outline: 0;
+    -webkit-box-shadow: 0 0 20px var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+  }
+}
+
+.header-container {
+  background: var(--accent);
+  margin: 0;
+  display: block;
+  clear: none;
+  .title {
+    color: var(--light);
+    .part1 {
+      color: var(--light);
+    }
+  }
+}
