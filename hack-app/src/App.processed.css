@@ -2,13 +2,16 @@
 :root {
   --light: white;
   --dark: black;
-  --accent: #B4DA55;
+  --accent: deepskyblue;
 }
 
 * {
   font-family: 'Montserrat';
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  margin: 0;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
 }
 
 .write-interface {
@@ -38,6 +41,7 @@
 .subheading {
   font-size: 35px;
   font-weight: 200;
+  padding: 20px;
 }
 
 .area {
@@ -50,29 +54,90 @@
 
 .write {
   border-radius: 15px;
-  height: 300px;
   padding: 10px;
-  border: 1px solid var(--dark);
+  height: 400px;
+  font-size: 16px;
   width: 80%;
 }
 
 .write:focus {
   outline: 0;
-  -webkit-box-shadow: 0 0 20px var(--accent);
-  box-shadow: 0 0 20px var(--accent);
+  -webkit-box-shadow: 0 0 50px var(--accent);
+  box-shadow: 0 0 50px var(--accent);
 }
 
 .header-container {
   background: var(--accent);
   margin: 0;
   display: block;
-  clear: none;
+  padding: 40px;
+  text-align: center;
 }
 
 .header-container .title {
   color: var(--light);
+  font-size: 45px;
+  font-weight: bold;
 }
 
-.header-container .title .part1 {
+.header-container .subtitle {
+  font-size: 30px;
+  font-style: italic;
+}
+
+.function-container {
+  background-color: var(--accent);
+  position: fixed;
+  bottom: 10px;
+  border-radius: 0 25px 25px 0;
+  padding: 15px;
+}
+
+.function-container button {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid var(--light);
   color: var(--light);
+  background-color: transparent;
+  margin: 0 25px;
+}
+
+.function-container button:hover {
+  background-color: var(--light);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.function-container button:disabled {
+  opacity: 0.5;
+}
+
+.function-container button:disabled:hover {
+  color: var(--light);
+  background-color: transparent;
+  cursor: default;
+}
+
+.deck-stack {
+  padding: 0;
+}
+
+.deck-stack li {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 10px 30px;
+}
+
+.deck-stack .card {
+  border: 3px solid var(--accent);
+  border-width: 3px 0;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.deck-stack .card .term {
+  font-weight: bold;
+  display: inline-block;
 }
